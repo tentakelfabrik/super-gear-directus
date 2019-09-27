@@ -1,0 +1,19 @@
+{
+    "name": "super-gear/directus",
+    "version": "0.1.0",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        { "name": "Björn Hase", "email": "me@tentakelfabrik.de" }
+    ],
+    "require": {
+        "php": "^7.0",
+        "mikecao/flight": "^1.3",
+        "erusev/parsedown": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "SuperGear\\": "src/"
+        }
+    }
+}
