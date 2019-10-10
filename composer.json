@@ -1,10 +1,14 @@
 {
-    "name": "super-gear/directus",
+    "name": "supergear/directus",
     "version": "0.1.0",
     "type": "library",
     "license": "MIT",
     "authors": [
-        { "name": "Björn Hase", "email": "me@tentakelfabrik.de" }
+        {
+            "name": "Björn Hase",
+            "email": "me@tentakelfabrik.de",
+            "homepage": "http://tentakelfabrik.de"
+        }
     ],
     "require": {
         "php": "^7.0",
