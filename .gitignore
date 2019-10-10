@@ -1,0 +1,7 @@
+composer.phar
+
+/vendor/
+node_modules
+.env
+*.log
+rysnc_exclude
