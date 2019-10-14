@@ -2,7 +2,7 @@
 
 namespace SuperGear\Directus\Controllers;
 
-use SuperGear\FlightAbstract;
+use SuperGear\Directus\FlightAbstract;
 use Exception;
 
 /**
@@ -14,7 +14,7 @@ use Exception;
  * @link https://gitlab.tentakelfabrik.de/super-gear/directus GitHub Repository
  *
  */
-abstract class ControllerAbstract extends FlightAbstract
+abstract class DirectusControllerAbstract extends FlightAbstract
 {
     protected $defaultView = NULL;
 
