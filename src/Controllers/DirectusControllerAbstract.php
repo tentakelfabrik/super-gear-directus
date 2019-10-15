@@ -1,6 +1,6 @@
 <?php
 
-namespace SuperGear\SuperGear\Directus\Controllers;
+namespace SuperGear\Directus\Controllers;
 
 use SuperGear\Directus\FlightAbstract;
 use Exception;

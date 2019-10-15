@@ -1,8 +1,8 @@
 <?php
 
-namespace SuperGear\Repositories;
+namespace SuperGear\Directus\Repositories;
 
-use SuperGear\DirectusClient\Collections\ItemCollection;
+use SuperGear\Directus\Collections\ItemCollection;
 
 /**
  * Abstract Repository to wrap ItemCollection
