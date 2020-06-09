@@ -1,6 +1,6 @@
 {
     "name": "tentakelfabrik/super-gear-directus",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -13,10 +13,10 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^7.0",
-        "mikecao/flight": "1.*",
-        "erusev/parsedown": "1.*",
+        "mikecao/flight": "^1.2",
+        "erusev/parsedown": "1.7.*",
         "vlucas/phpdotenv": "3.3.*",
-        "jenssegers/blade": "1.*"
+        "jenssegers/blade": "v1.2.3"
     },
     "autoload": {
         "psr-4": {
