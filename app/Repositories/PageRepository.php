@@ -30,6 +30,8 @@ class PageRepository extends RepositoryAbstract
         // if slug not set, search for empty slug
         if (!$slug) {
             $slug = [ '_null' => 'true' ];
+        } else {
+            $slug = [ '_eq' => $slug ];
         }
 
         return $this->queryBuilder
