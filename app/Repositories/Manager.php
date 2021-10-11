@@ -1,18 +1,20 @@
 <?php
 
-namespace SuperGear\Directus\Repositories;
+namespace App\Repositories;
 
 use Exception;
 
 /**
- * Manager Class to create Repository Objects that
- * are located in App\Repositories\
+ *  Manager Class to create Repository Objects that
+ *  are located in App\Repositories\
  *
  *
- * @author Björn Hase
- * @license http://opensource.org/licenses/MIT The MIT License
- * @link https://gitlab.tentakelfabrik.de/super-gear/super-gear-directus GitHub Repository
+ *  @author Björn Hase, Tentakelfabrik
+ *  @license http://opensource.org/licenses/MIT The MIT License
+ *  @link https://gitea.tentakelfabrik.de/Tentakelfabrik/super-gear-directus
+ *
  */
+
 class Manager
 {
     /**

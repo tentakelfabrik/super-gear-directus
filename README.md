@@ -1,97 +1,35 @@
 # Super Gear Directus
 
-Small Libary to request Directus API. Works with [http://flightphp.com/](Flight).
+Project to using a Directus Instance as CMS. Structure is inspired by Laravel, using [FlightPHP](https://github.com/mikecao/flight)
+for handle Request.
 
-## Install
+## Installation
 
-```bash
-composer require tentakelfabrik/super-gear-directus
+Download last Release, a Composer Installer will be Available in a Future Release.
+
+## Snapshot
+
+There is a Snapshot for a Basic Setup for the Directus Instance.
+
+## Quickstart
+
+Create a **.env** from **.env.example** adding token and url for Directus Instance.
+
 ```
-
-## Requirements
-
-For handle token and url for the Directus Server you have to use
-[https://github.com/vlucas/phpdotenv](vlucas/phpdotenv),
-
-```php
-env('DIRECTUS_API_URL'),
-env('DIRECTUS_API_TOKEN')
-```
-
-## Controller
-
-Example how to use SuperGear\\Directus\\Controllers\\DirectusControllerAbstract,
-
-```php
-class PageController extends DirectusControllerAbstract
-{
-    /** slug for home */
-    const HOME_SLUG = 'home';
-
-    /** set default view */
-    protected $defaultView = 'page/default';
-
-    /**
-     * get home page from slug
-     *
-     *
-     */
-    public function indexAction()
-    {
-        $repository = Manager::get('Page');
-        $page = $repository->findOneBySlug(self::HOME_SLUG);
-
-        if ($this->notFound($page)) {
-            $this->app->redirect('404');
-        }
-
-        $this->render($page);
-    }
-
-    /**
-     *  get single page from slug
-     *
-     *
-     *  @param string $slug
-     */
-    public function getAction($slug)
-    {
-        $repository = Manager::get('Page');
-        $page = $repository->findOneBySlug($slug);
-
-        if ($this->notFound($page)) {
-            $this->app->redirect('404');
-        }
-
-        $this->render($page);
-    }
-
-    /**
-     * if page not found
-     *
-     */
-    public function notFoundAction()
-    {
-        $page = [
-            'data' => [
-                'view' => 'page/404'
-            ]
-        ];
-
-        $this->render($page);
-    }
-}
+DIRECTUS_API_URL=
+DIRECTUS_API_TOKEN=
 ```
 
 ## Repositories
 
-Example to use the SuperGear\\Directus\\Respositories\\RepositoryAbstract,
+For getting Data use **App\\Respositories\\RepositoryAbstract** to create Repository-Classes.
+This is the default class to handle
 
 ```PHP
 class PageRepository extends RepositoryAbstract
 {
-    /** name of the collection */
-    protected $name = 'page';
+    /** endpoint */
+    protected $endpoint = 'pages';
 
     /**
      *  find single page with a slug,
@@ -102,25 +40,19 @@ class PageRepository extends RepositoryAbstract
      */
     public function findOneBySlug($slug)
     {
-        return $this->itemCollection->findOne($this->name, [
-            'filter[slug][eq]' => $slug,
-            'filter[status][eq]' => 'published'
-        ]);
-    }
+        if (!$slug) {
+            $slug = [ '_null' => 'true' ];
+        }
 
-    /**
-     *  find single page with a slug,
-     *  page must be published
-     *
-     *  @param  string $slug
-     *  @return array
-     */
-    public function findByView($view)
-    {
-        return $this->itemCollection->find($this->name, [
-            'filter[view][eq]' => $view,
-            'filter[status][eq]' => 'published'
-        ]);
+        return $this->queryBuilder
+            ->fields(['title', 'slug', 'content', 'view', 'meta', 'media_teaser.*', 'media_hero.*'])
+            ->aliases('view', 'template')
+            ->filter([
+                'status' => 'published',
+                'slug' => $slug
+            ])
+            ->findOne();
     }
 }
 ```
+

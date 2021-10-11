@@ -1,0 +1,2341 @@
+version: 1
+directus: 9.0.0-rc.95
+collections:
+  - collection: menu_items
+    meta:
+      collection: menu_items
+      icon: null
+      note: null
+      display_template: null
+      hidden: true
+      singleton: false
+      translations: null
+      archive_field: null
+      archive_app_filter: true
+      archive_value: null
+      unarchive_value: null
+      sort_field: null
+      accountability: all
+      color: null
+      item_duplication_fields: null
+    schema:
+      name: menu_items
+      schema: db
+      comment: ''
+      collation: utf8_general_ci
+      engine: InnoDB
+  - collection: menus_menu_items
+    meta:
+      collection: menus_menu_items
+      icon: import_export
+      note: null
+      display_template: null
+      hidden: true
+      singleton: false
+      translations: null
+      archive_field: null
+      archive_app_filter: true
+      archive_value: null
+      unarchive_value: null
+      sort_field: null
+      accountability: all
+      color: null
+      item_duplication_fields: null
+    schema:
+      name: menus_menu_items
+      schema: db
+      comment: ''
+      collation: utf8_general_ci
+      engine: InnoDB
+  - collection: snippets
+    meta:
+      collection: snippets
+      icon: null
+      note: null
+      display_template: null
+      hidden: false
+      singleton: false
+      translations: null
+      archive_field: status
+      archive_app_filter: true
+      archive_value: archived
+      unarchive_value: draft
+      sort_field: sort
+      accountability: all
+      color: null
+      item_duplication_fields: null
+    schema:
+      name: snippets
+      schema: db
+      comment: ''
+      collation: utf8_general_ci
+      engine: InnoDB
+  - collection: posts
+    meta:
+      collection: posts
+      icon: null
+      note: null
+      display_template: null
+      hidden: false
+      singleton: false
+      translations: null
+      archive_field: status
+      archive_app_filter: true
+      archive_value: archived
+      unarchive_value: draft
+      sort_field: null
+      accountability: all
+      color: null
+      item_duplication_fields: null
+    schema:
+      name: posts
+      schema: db
+      comment: ''
+      collation: utf8_general_ci
+      engine: InnoDB
+  - collection: menus
+    meta:
+      collection: menus
+      icon: null
+      note: null
+      display_template: null
+      hidden: false
+      singleton: false
+      translations: null
+      archive_field: status
+      archive_app_filter: true
+      archive_value: archived
+      unarchive_value: draft
+      sort_field: null
+      accountability: all
+      color: null
+      item_duplication_fields: null
+    schema:
+      name: menus
+      schema: db
+      comment: ''
+      collation: utf8_general_ci
+      engine: InnoDB
+  - collection: pages
+    meta:
+      collection: pages
+      icon: null
+      note: null
+      display_template: null
+      hidden: false
+      singleton: false
+      translations: null
+      archive_field: status
+      archive_app_filter: true
+      archive_value: archived
+      unarchive_value: draft
+      sort_field: null
+      accountability: all
+      color: null
+      item_duplication_fields: null
+    schema:
+      name: pages
+      schema: db
+      comment: ''
+      collation: utf8_general_ci
+      engine: InnoDB
+fields:
+  - collection: menu_items
+    field: page
+    type: string
+    schema:
+      name: page
+      table: menu_items
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: pages
+      comment: ''
+    meta:
+      collection: menu_items
+      field: page
+      special: null
+      interface: select-dropdown-m2o
+      options:
+        template: "{{title}} /\_{{slug}}"
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 4
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus_menu_items
+    field: menu_items_id
+    type: string
+    schema:
+      name: menu_items_id
+      table: menus_menu_items
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: menu_items
+      comment: ''
+    meta:
+      collection: menus_menu_items
+      field: menu_items_id
+      special: null
+      interface: null
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: true
+      sort: null
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus_menu_items
+    field: menus_id
+    type: string
+    schema:
+      name: menus_id
+      table: menus_menu_items
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: menus
+      comment: ''
+    meta:
+      collection: menus_menu_items
+      field: menus_id
+      special: null
+      interface: null
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: true
+      sort: null
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: file
+    type: string
+    schema:
+      name: file
+      table: snippets
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      comment: ''
+    meta:
+      collection: snippets
+      field: file
+      special: null
+      interface: file
+      options: null
+      display: file
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 7
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: user_created
+    type: string
+    schema:
+      name: user_created
+      table: snippets
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      comment: ''
+    meta:
+      collection: snippets
+      field: user_created
+      special:
+        - user-created
+      interface: select-dropdown-m2o
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      display: user
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 8
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: user_updated
+    type: string
+    schema:
+      name: user_updated
+      table: snippets
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      comment: ''
+    meta:
+      collection: snippets
+      field: user_updated
+      special:
+        - user-updated
+      interface: select-dropdown-m2o
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      display: user
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 10
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: user_created
+    type: string
+    schema:
+      name: user_created
+      table: posts
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      comment: ''
+    meta:
+      collection: posts
+      field: user_created
+      special:
+        - user-created
+      interface: select-dropdown-m2o
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      display: user
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: null
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: user_updated
+    type: string
+    schema:
+      name: user_updated
+      table: posts
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      comment: ''
+    meta:
+      collection: posts
+      field: user_updated
+      special:
+        - user-updated
+      interface: select-dropdown-m2o
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      display: user
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: null
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus
+    field: user_created
+    type: string
+    schema:
+      name: user_created
+      table: menus
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      comment: ''
+    meta:
+      collection: menus
+      field: user_created
+      special:
+        - user-created
+      interface: select-dropdown-m2o
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      display: user
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 6
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus
+    field: user_updated
+    type: string
+    schema:
+      name: user_updated
+      table: menus
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      comment: ''
+    meta:
+      collection: menus
+      field: user_updated
+      special:
+        - user-updated
+      interface: select-dropdown-m2o
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      display: user
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 8
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: media_hero
+    type: string
+    schema:
+      name: media_hero
+      table: pages
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      comment: ''
+    meta:
+      collection: pages
+      field: media_hero
+      special: null
+      interface: file-image
+      options: null
+      display: image
+      display_options:
+        circle: true
+      readonly: false
+      hidden: false
+      sort: 5
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: media_teaser
+    type: string
+    schema:
+      name: media_teaser
+      table: pages
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      comment: ''
+    meta:
+      collection: pages
+      field: media_teaser
+      special: null
+      interface: file-image
+      options: null
+      display: image
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 4
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: user_created
+    type: string
+    schema:
+      name: user_created
+      table: pages
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      comment: ''
+    meta:
+      collection: pages
+      field: user_created
+      special:
+        - user-created
+      interface: select-dropdown-m2o
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      display: user
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 10
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: user_updated
+    type: string
+    schema:
+      name: user_updated
+      table: pages
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      comment: ''
+    meta:
+      collection: pages
+      field: user_updated
+      special:
+        - user-updated
+      interface: select-dropdown-m2o
+      options:
+        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+      display: user
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 12
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menu_items
+    field: id
+    type: uuid
+    schema:
+      name: id
+      table: menu_items
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menu_items
+      field: id
+      special:
+        - uuid
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 1
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus_menu_items
+    field: id
+    type: integer
+    schema:
+      name: id
+      table: menus_menu_items
+      data_type: int unsigned
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: 10
+      numeric_scale: 0
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: true
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menus_menu_items
+      field: id
+      special: null
+      interface: null
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: true
+      sort: null
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: id
+    type: uuid
+    schema:
+      name: id
+      table: snippets
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: id
+      special:
+        - uuid
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 1
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: id
+    type: uuid
+    schema:
+      name: id
+      table: posts
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: id
+      special:
+        - uuid
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: null
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: title
+    type: string
+    schema:
+      name: title
+      table: posts
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: true
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: title
+      special: null
+      interface: input
+      options:
+        trim: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: null
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: slug
+    type: string
+    schema:
+      name: slug
+      table: posts
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: true
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: slug
+      special: null
+      interface: input
+      options:
+        slug: true
+        trim: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: null
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus
+    field: id
+    type: uuid
+    schema:
+      name: id
+      table: menus
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menus
+      field: id
+      special:
+        - uuid
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 1
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus
+    field: name
+    type: string
+    schema:
+      name: name
+      table: menus
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: true
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menus
+      field: name
+      special: null
+      interface: input
+      options:
+        trim: true
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 2
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: true
+  - collection: pages
+    field: id
+    type: uuid
+    schema:
+      name: id
+      table: pages
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: id
+      special:
+        - uuid
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: 1
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: slug
+    type: string
+    schema:
+      name: slug
+      table: pages
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: true
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: slug
+      special: null
+      interface: input
+      options:
+        slug: true
+        trim: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 3
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menu_items
+    field: title
+    type: string
+    schema:
+      name: title
+      table: menu_items
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menu_items
+      field: title
+      special: null
+      interface: input
+      options:
+        trim: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 2
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menu_items
+    field: url
+    type: string
+    schema:
+      name: url
+      table: menu_items
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menu_items
+      field: url
+      special: null
+      interface: input
+      options:
+        trim: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 5
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menu_items
+    field: target
+    type: string
+    schema:
+      name: target
+      table: menu_items
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menu_items
+      field: target
+      special: null
+      interface: select-dropdown
+      options:
+        choices:
+          - text: New tab
+            value: _blank
+        allowOther: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 3
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: status
+    type: string
+    schema:
+      name: status
+      table: snippets
+      data_type: varchar
+      default_value: draft
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: status
+      special: null
+      interface: select-dropdown
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      display: labels
+      display_options:
+        showAsDot: true
+        choices:
+          - background: '#00C897'
+            value: published
+          - background: '#D3DAE4'
+            value: draft
+          - background: '#F7971C'
+            value: archived
+      readonly: false
+      hidden: false
+      sort: 4
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: sort
+    type: integer
+    schema:
+      name: sort
+      table: snippets
+      data_type: int
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: 10
+      numeric_scale: 0
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: sort
+      special: null
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: true
+      sort: 5
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: date_created
+    type: timestamp
+    schema:
+      name: date_created
+      table: snippets
+      data_type: timestamp
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: date_created
+      special:
+        - date-created
+      interface: datetime
+      options: null
+      display: datetime
+      display_options:
+        relative: true
+      readonly: true
+      hidden: true
+      sort: 9
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: date_updated
+    type: timestamp
+    schema:
+      name: date_updated
+      table: snippets
+      data_type: timestamp
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: date_updated
+      special:
+        - date-updated
+      interface: datetime
+      options: null
+      display: datetime
+      display_options:
+        relative: true
+      readonly: true
+      hidden: true
+      sort: 11
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: content
+    type: text
+    schema:
+      name: content
+      table: snippets
+      data_type: text
+      default_value: null
+      generation_expression: null
+      max_length: 65535
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: content
+      special: null
+      interface: input-rich-text-md
+      options: null
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 6
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: title
+    type: string
+    schema:
+      name: title
+      table: snippets
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: title
+      special: null
+      interface: input
+      options:
+        trim: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 2
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: snippets
+    field: slug
+    type: string
+    schema:
+      name: slug
+      table: snippets
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: slug
+      special: null
+      interface: select-dropdown
+      options:
+        allowOther: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 3
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: status
+    type: string
+    schema:
+      name: status
+      table: posts
+      data_type: varchar
+      default_value: draft
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: status
+      special: null
+      interface: select-dropdown
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      display: labels
+      display_options:
+        showAsDot: true
+        choices:
+          - background: '#00C897'
+            value: published
+          - background: '#D3DAE4'
+            value: draft
+          - background: '#F7971C'
+            value: archived
+      readonly: false
+      hidden: false
+      sort: null
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: date_created
+    type: timestamp
+    schema:
+      name: date_created
+      table: posts
+      data_type: timestamp
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: date_created
+      special:
+        - date-created
+      interface: datetime
+      options: null
+      display: datetime
+      display_options:
+        relative: true
+      readonly: true
+      hidden: true
+      sort: null
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: date_updated
+    type: timestamp
+    schema:
+      name: date_updated
+      table: posts
+      data_type: timestamp
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: date_updated
+      special:
+        - date-updated
+      interface: datetime
+      options: null
+      display: datetime
+      display_options:
+        relative: true
+      readonly: true
+      hidden: true
+      sort: null
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus
+    field: status
+    type: string
+    schema:
+      name: status
+      table: menus
+      data_type: varchar
+      default_value: draft
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menus
+      field: status
+      special: null
+      interface: select-dropdown
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      display: labels
+      display_options:
+        showAsDot: true
+        choices:
+          - background: '#00C897'
+            value: published
+          - background: '#D3DAE4'
+            value: draft
+          - background: '#F7971C'
+            value: archived
+      readonly: false
+      hidden: false
+      sort: 3
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus
+    field: date_created
+    type: timestamp
+    schema:
+      name: date_created
+      table: menus
+      data_type: timestamp
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menus
+      field: date_created
+      special:
+        - date-created
+      interface: datetime
+      options: null
+      display: datetime
+      display_options:
+        relative: true
+      readonly: true
+      hidden: true
+      sort: 7
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus
+    field: date_updated
+    type: timestamp
+    schema:
+      name: date_updated
+      table: menus
+      data_type: timestamp
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: menus
+      field: date_updated
+      special:
+        - date-updated
+      interface: datetime
+      options: null
+      display: datetime
+      display_options:
+        relative: true
+      readonly: true
+      hidden: true
+      sort: 9
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: status
+    type: string
+    schema:
+      name: status
+      table: pages
+      data_type: varchar
+      default_value: draft
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: status
+      special: null
+      interface: select-dropdown
+      options:
+        choices:
+          - text: $t:published
+            value: published
+          - text: $t:draft
+            value: draft
+          - text: $t:archived
+            value: archived
+      display: labels
+      display_options:
+        showAsDot: true
+        choices:
+          - background: '#00C897'
+            value: published
+          - background: '#D3DAE4'
+            value: draft
+          - background: '#F7971C'
+            value: archived
+      readonly: false
+      hidden: false
+      sort: 7
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: date_created
+    type: timestamp
+    schema:
+      name: date_created
+      table: pages
+      data_type: timestamp
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: date_created
+      special:
+        - date-created
+      interface: datetime
+      options: null
+      display: datetime
+      display_options:
+        relative: true
+      readonly: true
+      hidden: true
+      sort: 11
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: date_updated
+    type: timestamp
+    schema:
+      name: date_updated
+      table: pages
+      data_type: timestamp
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: date_updated
+      special:
+        - date-updated
+      interface: datetime
+      options: null
+      display: datetime
+      display_options:
+        relative: true
+      readonly: true
+      hidden: true
+      sort: 13
+      width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: title
+    type: string
+    schema:
+      name: title
+      table: pages
+      data_type: varchar
+      default_value: null
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: title
+      special: null
+      interface: input
+      options:
+        trim: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 2
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: true
+  - collection: pages
+    field: meta
+    type: json
+    schema:
+      name: meta
+      table: pages
+      data_type: longtext
+      default_value: null
+      generation_expression: null
+      max_length: 4294967295
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: meta
+      special:
+        - json
+      interface: list
+      options:
+        addLabel: add
+        fields:
+          - field: name
+            name: name
+            type: string
+            meta:
+              field: name
+              type: string
+              interface: input
+              options:
+                trim: true
+          - field: content
+            name: content
+            type: text
+            meta:
+              field: content
+              type: text
+              interface: input-multiline
+              options:
+                trim: true
+        template: '{{ name }}'
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 8
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: content
+    type: text
+    schema:
+      name: content
+      table: pages
+      data_type: text
+      default_value: null
+      generation_expression: null
+      max_length: 65535
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: content
+      special: null
+      interface: input-rich-text-md
+      options:
+        customSyntax: null
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 9
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: pages
+    field: template
+    type: string
+    schema:
+      name: template
+      table: pages
+      data_type: varchar
+      default_value: page/default
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: pages
+      field: template
+      special: null
+      interface: select-dropdown
+      options:
+        choices:
+          - text: Default
+            value: page/default
+          - text: Home
+            value: page/home
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 6
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: menus
+    field: items
+    type: m2m
+    schema: null
+    meta:
+      collection: menus
+      field: items
+      special:
+        - m2m
+      interface: list-m2m
+      options:
+        template: '{{menu_items_id.title}} / {{menu_items_id.page.title}}'
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 4
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+relations:
+  - collection: menu_items
+    field: page
+    related_collection: pages
+    schema:
+      table: menu_items
+      column: page
+      foreign_key_table: pages
+      foreign_key_column: id
+      constraint_name: menu_items_page_foreign
+      on_update: RESTRICT
+      on_delete: SET NULL
+    meta:
+      many_collection: menu_items
+      many_field: page
+      one_collection: pages
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: menus_menu_items
+    field: menu_items_id
+    related_collection: menu_items
+    schema:
+      table: menus_menu_items
+      column: menu_items_id
+      foreign_key_table: menu_items
+      foreign_key_column: id
+      constraint_name: menus_menu_items_menu_items_id_foreign
+      on_update: RESTRICT
+      on_delete: SET NULL
+    meta:
+      many_collection: menus_menu_items
+      many_field: menu_items_id
+      one_collection: menu_items
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: menus_id
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: menus_menu_items
+    field: menus_id
+    related_collection: menus
+    schema:
+      table: menus_menu_items
+      column: menus_id
+      foreign_key_table: menus
+      foreign_key_column: id
+      constraint_name: menus_menu_items_menus_id_foreign
+      on_update: RESTRICT
+      on_delete: CASCADE
+    meta:
+      many_collection: menus_menu_items
+      many_field: menus_id
+      one_collection: menus
+      one_field: items
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: menu_items_id
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: snippets
+    field: file
+    related_collection: directus_files
+    schema:
+      table: snippets
+      column: file
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: snippets_file_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: snippets
+      many_field: file
+      one_collection: directus_files
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: snippets
+    field: user_created
+    related_collection: directus_users
+    schema:
+      table: snippets
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: snippets_user_created_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: snippets
+      many_field: user_created
+      one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: snippets
+    field: user_updated
+    related_collection: directus_users
+    schema:
+      table: snippets
+      column: user_updated
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: snippets_user_updated_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: snippets
+      many_field: user_updated
+      one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: posts
+    field: user_created
+    related_collection: directus_users
+    schema:
+      table: posts
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: posts_user_created_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: posts
+      many_field: user_created
+      one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: posts
+    field: user_updated
+    related_collection: directus_users
+    schema:
+      table: posts
+      column: user_updated
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: posts_user_updated_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: posts
+      many_field: user_updated
+      one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: menus
+    field: user_created
+    related_collection: directus_users
+    schema:
+      table: menus
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: menus_user_created_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: menus
+      many_field: user_created
+      one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: menus
+    field: user_updated
+    related_collection: directus_users
+    schema:
+      table: menus
+      column: user_updated
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: menus_user_updated_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: menus
+      many_field: user_updated
+      one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: pages
+    field: media_hero
+    related_collection: directus_files
+    schema:
+      table: pages
+      column: media_hero
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: pages_media_hero_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: pages
+      many_field: media_hero
+      one_collection: directus_files
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: pages
+    field: media_teaser
+    related_collection: directus_files
+    schema:
+      table: pages
+      column: media_teaser
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: pages_media_teaser_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: pages
+      many_field: media_teaser
+      one_collection: directus_files
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: pages
+    field: user_created
+    related_collection: directus_users
+    schema:
+      table: pages
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: pages_user_created_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: pages
+      many_field: user_created
+      one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: pages
+    field: user_updated
+    related_collection: directus_users
+    schema:
+      table: pages
+      column: user_updated
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: pages_user_updated_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: pages
+      many_field: user_updated
+      one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify

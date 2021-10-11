@@ -1,16 +1,18 @@
 <?php
 
-namespace SuperGear\Directus\Helpers;
+namespace App\Helpers;
 
 use Parsedown;
 
 /**
- * Helper to extend Parsedown
+ *  Helper to extend Parsedown
  *
- * @author Björn Hase
- * @license http://opensource.org/licenses/MIT The MIT License
- * @link https://gitlab.tentakelfabrik.de/super-gear/directus GitHub Repository
+ *  @author Björn Hase, Tentakelfabrik
+ *  @license http://opensource.org/licenses/MIT The MIT License
+ *  @link https://gitea.tentakelfabrik.de/Tentakelfabrik/super-gear-directus
+ *
  */
+
 class MarkdownHelper extends Parsedown
 {
     /**
