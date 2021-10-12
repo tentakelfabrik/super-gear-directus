@@ -1,4 +1,4 @@
-# Super Gear Directus
+# Super Gear Directus 1.0.0-rc1
 
 Project to using a Directus Instance as CMS. Structure is inspired by Laravel, using [FlightPHP](https://github.com/mikecao/flight)
 for handle Request.
@@ -20,7 +20,7 @@ DIRECTUS_API_URL=
 DIRECTUS_API_TOKEN=
 ```
 
-## Laravel Mix 
+## Laravel Mix
 
 ## Repositories
 
