@@ -1,6 +1,5 @@
 @inject('pageRepository', 'App\Repositories\PageRepository')
 @inject('markdownHelper', 'App\Helpers\MarkdownHelper')
-@inject('slugify', 'Cocur\Slugify\Slugify')
 
 <!DOCTYPE html>
 <html lang="de-DE" class="no-js">
@@ -17,7 +16,7 @@
 
         @stack('head')
     </head>
-    <body class="{{ $slugify->slugify($page['data']['view']) }}">
+    <body class="{{ viewName($page) }}">
 
         <header class="site-header">
             <h1 class="site-header__title">

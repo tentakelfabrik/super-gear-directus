@@ -40,3 +40,16 @@ function asset($path, $prefix = '/public')
 
     return $path;
 }
+
+/**
+ *  getting name of view as slug 
+ *
+ *  @param  array $page
+ *  @return string
+ *
+ */
+function viewName(array $page)
+{
+    $slugify = new \Cocur\Slugify\Slugify();
+    return $slugify->slugify($page['data']['view']);
+}
