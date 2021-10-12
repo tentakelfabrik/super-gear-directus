@@ -38,8 +38,8 @@ class PageController extends DirectusControllerAbstract
         $repository = Manager::get('Page');
         $page = $repository->findOneBySlug($slug);
 
-        if ($page['data'] === NULL) {
-            $this->app>redirect('/404', 301);
+        if (count($page['data']) === 0) {
+            $this->app->redirect('/404', 301);
         } else {
             $this->render($page);
         }
