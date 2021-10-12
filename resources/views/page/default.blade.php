@@ -1,9 +1,5 @@
 @extends('layout')
 
-@php
-var_dump($page); die();
-@endphp
-
 @inject('markdownHelper', 'App\Helpers\MarkdownHelper')
 
 @section('content')
