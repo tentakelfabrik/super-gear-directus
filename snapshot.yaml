@@ -20,7 +20,7 @@ collections:
       item_duplication_fields: null
     schema:
       name: menu_items
-      schema: db
+      schema: db787832552465385
       comment: ''
       collation: utf8_general_ci
       engine: InnoDB
@@ -43,7 +43,7 @@ collections:
       item_duplication_fields: null
     schema:
       name: menus_menu_items
-      schema: db
+      schema: db787832552465385
       comment: ''
       collation: utf8_general_ci
       engine: InnoDB
@@ -66,7 +66,7 @@ collections:
       item_duplication_fields: null
     schema:
       name: snippets
-      schema: db
+      schema: db787832552465385
       comment: ''
       collation: utf8_general_ci
       engine: InnoDB
@@ -89,7 +89,7 @@ collections:
       item_duplication_fields: null
     schema:
       name: posts
-      schema: db
+      schema: db787832552465385
       comment: ''
       collation: utf8_general_ci
       engine: InnoDB
@@ -112,7 +112,7 @@ collections:
       item_duplication_fields: null
     schema:
       name: menus
-      schema: db
+      schema: db787832552465385
       comment: ''
       collation: utf8_general_ci
       engine: InnoDB
@@ -135,7 +135,7 @@ collections:
       item_duplication_fields: null
     schema:
       name: pages
-      schema: db
+      schema: db787832552465385
       comment: ''
       collation: utf8_general_ci
       engine: InnoDB
@@ -1917,9 +1917,18 @@ fields:
             meta:
               field: name
               type: string
-              interface: input
+              interface: select-dropdown
               options:
                 trim: true
+                allowOther: true
+                allowNone: true
+                choices:
+                  - text: description
+                    value: description
+                  - text: robots
+                    value: robots
+                  - text: author
+                    value: author
           - field: content
             name: content
             type: text
