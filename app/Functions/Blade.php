@@ -42,7 +42,7 @@ function asset($path, $prefix = '/public')
 }
 
 /**
- *  getting name of view as slug 
+ *  getting name of view as slug
  *
  *  @param  array $page
  *  @return string
@@ -52,4 +52,24 @@ function viewName(array $page)
 {
     $slugify = new \Cocur\Slugify\Slugify();
     return $slugify->slugify($page['data']['view']);
+}
+
+/**
+ *  getting name of view as slug
+ *
+ *  @param  array $page
+ *  @return string
+ *
+ */
+function canonical()
+{
+    if (isset($_SERVER['HTTPS'])) {
+        $canoncial = 'https';
+    } else {
+        $canoncial = 'http';
+    }
+
+    $canoncial .= '://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+    return $canoncial;
 }

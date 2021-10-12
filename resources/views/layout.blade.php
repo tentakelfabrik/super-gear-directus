@@ -14,8 +14,8 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="{{ (isset($_SERVER['HTTPS']) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] }}" rel="canonical">
-        <link href="{{ asset('/css/index.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ canonical() }}" rel="canonical">
+        <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" type="text/css">
 
         @stack('head')
     </head>

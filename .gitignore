@@ -108,6 +108,9 @@ out
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+# Laravel Mix
+mix-manifest.json
+
 # yarn v2
 .yarn/cache
 .yarn/unplugged

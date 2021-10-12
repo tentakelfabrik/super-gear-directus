@@ -20,6 +20,8 @@ DIRECTUS_API_URL=
 DIRECTUS_API_TOKEN=
 ```
 
+## Laravel Mix 
+
 ## Repositories
 
 For getting Data use **App\\Respositories\\RepositoryAbstract** to create Repository-Classes.
