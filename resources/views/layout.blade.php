@@ -1,5 +1,11 @@
 @inject('pageRepository', 'App\Repositories\PageRepository')
+@inject('siteRepository', 'App\Repositories\SiteRepository')
+
 @inject('markdownHelper', 'App\Helpers\MarkdownHelper')
+
+@php
+    $site = $siteRepository->findOne();
+@endphp
 
 <!DOCTYPE html>
 <html lang="de-DE">
@@ -7,7 +13,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>
-            Elina Penner | {{ $page['data']['title'] }}
+            {{ title($page, $site) }}
         </title>
 
         @include('partials.meta')
@@ -24,6 +30,7 @@
         <header class="site-header">
             <h1 class="site-header__title">
                 Super Gear Directus
+                <img src="{{ assetsUrl($site['data']['logo']) }}" />
             </h1>
         </header>
 

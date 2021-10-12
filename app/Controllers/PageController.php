@@ -23,6 +23,7 @@ class PageController extends DirectusControllerAbstract
     protected $page404 = [
         'data' => [
             'title' => '404',
+            'slug' => '404',
             'view' => 'page/404'
         ]
     ];

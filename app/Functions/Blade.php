@@ -73,3 +73,47 @@ function canonical()
 
     return $canoncial;
 }
+
+/**
+ *  getting title for head
+ *
+ *  @param  array $page
+ *  @param  array $site
+ *  @return string
+ */
+function title($page, $site)
+{
+    $title = [];
+
+    if ($site['data']['title']) {
+        $title[] = $site['data']['title'];
+    }
+
+    // if not homepage set page title first
+    if ($page['data']['slug']) {
+        array_unshift($title, $page['data']['title']);
+    } else {
+        $title[] = $page['data']['title'];
+    }
+
+    return join(' | ', $title);
+}
+
+/**
+ *  getting url for assets of directus api
+ *
+ *  @param  string string
+ *  @param  array array
+ *  @return string
+ *
+ */
+function assetsUrl(string $id, array $options = NULL)
+{
+    $query = NULL;
+
+    if ($options) {
+        $query = '?'.http_build_query($options);
+    }
+
+    return $_ENV['DIRECTUS_API_URL'].'/assets/'.$id.$query;
+}
