@@ -25,7 +25,7 @@ class MenuRepository extends RepositoryAbstract
      *  @param  string $slug
      *  @return array
      */
-    public function findOneByName($name)
+    public function findByName($name)
     {
         $results = $this->queryBuilder
             ->fields([
@@ -42,14 +42,35 @@ class MenuRepository extends RepositoryAbstract
             ->aliases('page[status]', 'page_status')
             ->aliases('page[slug]', 'page_slug')
             ->filter([
-                'page' => [
-                    'status' => 'published'
-                ],
-                'menus' => [
-                    'menus_id' => [
-                        'name' =>  $name,
-                        'status' => 'published'
-                    ]
+                '_or' => [
+                    [
+                        '_and' => [
+                            [ 'page' => [
+                                'id' => [
+                                    '_null' => 'true'
+                                ]
+                            ]],
+                            [ 'menus' => [
+                                'menus_id' => [
+                                    'name' =>  $name,
+                                    'status' => 'published'
+                                ]
+                            ]]
+                        ]
+                    ],
+                    [
+                        '_and' => [
+                            [ 'page' => [
+                                'status' => 'published'
+                            ]],
+                            [ 'menus' => [
+                                'menus_id' => [
+                                    'name' =>  $name,
+                                    'status' => 'published'
+                                ]
+                            ]]
+                        ]
+                    ],
                 ]
             ])
             ->find();

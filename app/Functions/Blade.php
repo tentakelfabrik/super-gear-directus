@@ -117,3 +117,29 @@ function assetsUrl(string $id, array $options = NULL)
 
     return $_ENV['DIRECTUS_API_URL'].'/assets/'.$id.$query;
 }
+
+/**
+ *
+ *
+ *
+ */
+function isCurrentPage($slug, $class = 'current')
+{
+    // parse current url
+    $url = parse_url($_SERVER['REQUEST_URI']);
+
+    // getting path, remove first "/""
+    $path = ltrim($url['path'], '/');
+
+    // parse empty in NULL
+    // @TODO bad solution, check for using parent
+    if (empty($path)) {
+        $path = NULL;
+    }
+
+    if ($path !== $slug) {
+        $class = NULL;
+    }
+
+    return $class;
+}

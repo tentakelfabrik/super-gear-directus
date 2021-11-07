@@ -1,10 +1,12 @@
 @inject('pageRepository', 'App\Repositories\PageRepository')
 @inject('siteRepository', 'App\Repositories\SiteRepository')
+@inject('menuRepository', 'App\Repositories\MenuRepository')
 
 @inject('markdownHelper', 'App\Helpers\MarkdownHelper')
 
 @php
     $site = $siteRepository->findOne();
+    $menuItems = $menuRepository->findByName('test');
 @endphp
 
 <!DOCTYPE html>
@@ -32,6 +34,7 @@
                 Super Gear Directus
                 <img src="{{ assetsUrl($site['data']['logo']) }}" />
             </h1>
+            @include('partials.menu', [ 'menuItems' => $menuItems ])
         </header>
 
         <main class="site-main">
