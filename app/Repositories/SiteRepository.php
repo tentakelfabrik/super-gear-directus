@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Repositories\RepositoryAbstract;
 
 /**
- *  request pages items from directus
+ *  request site singleton
  *
  *  @author Björn Hase, Tentakelfabrik
  *  @license http://opensource.org/licenses/MIT The MIT License
@@ -29,7 +29,9 @@ class SiteRepository extends RepositoryAbstract
     {
         return $this->queryBuilder
             ->fields([
-                'title', 'description', 'logo'
+                'title', 
+                'description',
+                'logo'
             ])
             ->aliases('logo[id]', 'logo')
             ->findOne();
