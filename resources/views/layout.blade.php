@@ -6,7 +6,7 @@
 
 @php
     $site = $siteRepository->findOne();
-    $menuItems = $menuRepository->findByName('test');
+    $menuItems = $menuRepository->findByName('main');
 @endphp
 
 <!DOCTYPE html>
