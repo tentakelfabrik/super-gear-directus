@@ -1,4 +1,4 @@
-# Super Gear Directus 1.0.0-rc1
+# Super Gear Directus 1.0.0-rc2
 
 Project to using a Directus Instance as CMS. Structure is inspired by Laravel, using [FlightPHP](https://github.com/mikecao/flight)
 for handle Request.
@@ -9,7 +9,7 @@ Download last Release, a Composer Installer will be Available in a Future Releas
 
 ## Snapshot
 
-There is a Snapshot for a Basic Setup for the Directus Instance.
+There is a Snapshot for a Basic Setup for the Directus Instance (snapshot.yaml)
 
 ## Quickstart
 
