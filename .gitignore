@@ -120,7 +120,6 @@ mix-manifest.json
 
 vendor
 
-storage/cache/
 !storage/.gitkeep
 !storage/cache/.gitkeep
 
