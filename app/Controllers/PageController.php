@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\DirectusControllerAbstract;
-use App\Repositories\Manager;
+use App\Repositories\PageRepository;
 
 /**
  *  controller for page items from directus
@@ -36,11 +36,11 @@ class PageController extends DirectusControllerAbstract
      */
     public function getAction($slug = NULL)
     {
-        $repository = Manager::get('Page');
-        $page = $repository->findOneBySlug($slug);
+        $pageRepository = new PageRepository();
+        $page = $pageRepository->findOneBySlug($slug);
 
         if (count($page['data']) === 0) {
-            $this->app->redirect('/404', 301);
+            $this->app->redirect('/404');
         } else {
             $this->render($page);
         }

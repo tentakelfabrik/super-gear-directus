@@ -1,4 +1,4 @@
-# Super Gear Directus 1.0.0-rc2
+# Super Gear Directus 1.0.0-rc3
 
 Project to using a Directus Instance as CMS. Structure is inspired by Laravel, using [FlightPHP](https://github.com/mikecao/flight)
 for handle Request.
@@ -25,36 +25,4 @@ DIRECTUS_API_TOKEN=
 ## Repositories
 
 For getting Data use **App\\Respositories\\RepositoryAbstract** to create Repository-Classes.
-This is the default class to handle
-
-```PHP
-class PageRepository extends RepositoryAbstract
-{
-    /** endpoint */
-    protected $endpoint = 'pages';
-
-    /**
-     *  find single page with a slug,
-     *  page must be published
-     *
-     *  @param  string $slug
-     *  @return array
-     */
-    public function findOneBySlug($slug)
-    {
-        if (!$slug) {
-            $slug = [ '_null' => 'true' ];
-        }
-
-        return $this->queryBuilder
-            ->fields(['title', 'slug', 'content', 'view', 'meta', 'media_teaser.*', 'media_hero.*'])
-            ->aliases('view', 'template')
-            ->filter([
-                'status' => 'published',
-                'slug' => $slug
-            ])
-            ->findOne();
-    }
-}
-```
 

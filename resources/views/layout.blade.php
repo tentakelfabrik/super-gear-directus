@@ -2,8 +2,6 @@
 @inject('siteRepository', 'App\Repositories\SiteRepository')
 @inject('menuRepository', 'App\Repositories\MenuRepository')
 
-@inject('markdownHelper', 'App\Helpers\MarkdownHelper')
-
 @php
     $site = $siteRepository->findOne();
     $menuItems = $menuRepository->findByName('main');
