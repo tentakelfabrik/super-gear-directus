@@ -29,11 +29,11 @@ class SiteRepository extends RepositoryAbstract
     {
         return $this->queryBuilder
             ->fields([
-                'title', 
+                'title',
                 'description',
                 'logo'
             ])
-            ->aliases('logo[id]', 'logo')
+            ->aliases('logo', 'logo[id]')
             ->findOne();
     }
 }

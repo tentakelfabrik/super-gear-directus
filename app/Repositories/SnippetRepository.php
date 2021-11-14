@@ -25,19 +25,20 @@ class SnippetRepository extends RepositoryAbstract
      *  @param  string $slug
      *  @return array
      */
-    public function findByType($type)
+    public function findByName($name)
     {
         $results = $this->queryBuilder
             ->fields([
                 'title',
                 'content',
+                'name',
                 'view',
-                'blocks',
-                'files.directus_files_id'
+                'file.id',
+                'file.description'
             ])
             ->aliases('template', 'view')
             ->filter([
-                'type' => $type
+                'name' => $name
             ])
             ->find();
 

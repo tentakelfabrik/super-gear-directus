@@ -40,7 +40,7 @@ class PageRepository extends RepositoryAbstract
                 'media_teaser.*',
                 'media_hero.*'
             ])
-            ->aliases('view', 'template')
+            ->aliases('template', 'view')
             ->filter([
                 'status' => 'published',
                 'slug' => $slug
