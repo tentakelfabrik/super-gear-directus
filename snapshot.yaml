@@ -421,7 +421,7 @@ fields:
       display_options: null
       readonly: true
       hidden: true
-      sort: 8
+      sort: 9
       width: half
       group: null
       translations: null
@@ -460,8 +460,82 @@ fields:
       display_options: null
       readonly: true
       hidden: true
-      sort: 10
+      sort: 11
       width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: media_hero
+    type: string
+    schema:
+      name: media_hero
+      table: posts
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      comment: ''
+    meta:
+      collection: posts
+      field: media_hero
+      special: null
+      interface: file-image
+      options: null
+      display: image
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 7
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: media_teaser
+    type: string
+    schema:
+      name: media_teaser
+      table: posts
+      data_type: char
+      default_value: null
+      generation_expression: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      comment: ''
+    meta:
+      collection: posts
+      field: media_teaser
+      special: null
+      interface: file-image
+      options: null
+      display: image
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 6
+      width: full
       group: null
       translations: null
       note: null
@@ -499,7 +573,7 @@ fields:
       display_options: null
       readonly: true
       hidden: true
-      sort: null
+      sort: 12
       width: half
       group: null
       translations: null
@@ -538,7 +612,7 @@ fields:
       display_options: null
       readonly: true
       hidden: true
-      sort: null
+      sort: 14
       width: half
       group: null
       translations: null
@@ -654,7 +728,7 @@ fields:
         circle: true
       readonly: false
       hidden: false
-      sort: 5
+      sort: 6
       width: full
       group: null
       translations: null
@@ -691,7 +765,7 @@ fields:
       display_options: null
       readonly: false
       hidden: false
-      sort: 4
+      sort: 5
       width: full
       group: null
       translations: null
@@ -957,7 +1031,7 @@ fields:
       display_options: null
       readonly: true
       hidden: true
-      sort: null
+      sort: 1
       width: full
       group: null
       translations: null
@@ -995,13 +1069,13 @@ fields:
       display_options: null
       readonly: false
       hidden: false
-      sort: null
+      sort: 2
       width: full
       group: null
       translations: null
       note: null
       conditions: null
-      required: false
+      required: true
   - collection: posts
     field: slug
     type: string
@@ -1034,13 +1108,13 @@ fields:
       display_options: null
       readonly: false
       hidden: false
-      sort: null
+      sort: 3
       width: full
       group: null
       translations: null
       note: null
       conditions: null
-      required: false
+      required: true
   - collection: menus
     field: id
     type: uuid
@@ -1506,7 +1580,7 @@ fields:
       display_options: null
       readonly: false
       hidden: true
-      sort: 5
+      sort: 8
       width: full
       group: null
       translations: null
@@ -1545,7 +1619,7 @@ fields:
         relative: true
       readonly: true
       hidden: true
-      sort: 9
+      sort: 10
       width: half
       group: null
       translations: null
@@ -1584,7 +1658,7 @@ fields:
         relative: true
       readonly: true
       hidden: true
-      sort: 11
+      sort: 12
       width: half
       group: null
       translations: null
@@ -1667,10 +1741,51 @@ fields:
       conditions: null
       required: false
   - collection: snippets
-    field: slug
+    field: name
     type: string
     schema:
-      name: slug
+      name: name
+      table: snippets
+      data_type: varchar
+      default_value: default
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: snippets
+      field: name
+      special: null
+      interface: select-dropdown
+      options:
+        choices:
+          - text: Default
+            value: default
+        allowOther: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 3
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: true
+  - collection: snippets
+    field: template
+    type: string
+    schema:
+      name: template
       table: snippets
       data_type: varchar
       default_value: null
@@ -1688,16 +1803,20 @@ fields:
       comment: ''
     meta:
       collection: snippets
-      field: slug
+      field: template
       special: null
       interface: select-dropdown
       options:
+        choices:
+          - text: Default
+            value: snippets/default
+        allowNone: true
         allowOther: true
       display: raw
       display_options: null
       readonly: false
       hidden: false
-      sort: 3
+      sort: 5
       width: full
       group: null
       translations: null
@@ -1749,7 +1868,7 @@ fields:
             value: archived
       readonly: false
       hidden: false
-      sort: null
+      sort: 4
       width: full
       group: null
       translations: null
@@ -1788,7 +1907,7 @@ fields:
         relative: true
       readonly: true
       hidden: true
-      sort: null
+      sort: 13
       width: half
       group: null
       translations: null
@@ -1827,8 +1946,227 @@ fields:
         relative: true
       readonly: true
       hidden: true
-      sort: null
+      sort: 15
       width: half
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: lead
+    type: text
+    schema:
+      name: lead
+      table: posts
+      data_type: text
+      default_value: null
+      generation_expression: null
+      max_length: 65535
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: lead
+      special: null
+      interface: input-rich-text-md
+      options: null
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 10
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: content
+    type: text
+    schema:
+      name: content
+      table: posts
+      data_type: text
+      default_value: null
+      generation_expression: null
+      max_length: 65535
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: content
+      special: null
+      interface: input-rich-text-md
+      options: null
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 11
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: meta
+    type: json
+    schema:
+      name: meta
+      table: posts
+      data_type: longtext
+      default_value: null
+      generation_expression: null
+      max_length: 4294967295
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: meta
+      special:
+        - json
+      interface: list
+      options:
+        template: '{{ name }} '
+        addLabel: add
+        fields:
+          - field: name
+            name: name
+            type: string
+            meta:
+              field: name
+              type: string
+              interface: select-dropdown
+              options:
+                allowOther: true
+                allowNone: true
+                choices:
+                  - text: description
+                    value: description
+                  - text: robots
+                    value: robots
+                  - text: author
+                    value: author
+          - field: content
+            name: content
+            type: text
+            meta:
+              field: content
+              type: text
+              interface: input-multiline
+              options:
+                trim: true
+      display: raw
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 9
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: template
+    type: string
+    schema:
+      name: template
+      table: posts
+      data_type: varchar
+      default_value: post/default
+      generation_expression: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: template
+      special: null
+      interface: select-dropdown
+      options:
+        allowOther: true
+        choices:
+          - text: Default
+            value: post/default
+      display: labels
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 8
+      width: full
+      group: null
+      translations: null
+      note: null
+      conditions: null
+      required: false
+  - collection: posts
+    field: published_at
+    type: dateTime
+    schema:
+      name: published_at
+      table: posts
+      data_type: datetime
+      default_value: null
+      generation_expression: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+      comment: ''
+    meta:
+      collection: posts
+      field: published_at
+      special: ''
+      interface: datetime
+      options: null
+      display: datetime
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 5
+      width: full
       group: null
       translations: null
       note: null
@@ -2009,7 +2347,7 @@ fields:
             value: archived
       readonly: false
       hidden: false
-      sort: 7
+      sort: 4
       width: full
       group: null
       translations: null
@@ -2269,11 +2607,13 @@ fields:
             value: page/default
           - text: Home
             value: page/home
+          - text: Blog
+            value: page/blog
       display: raw
       display_options: null
       readonly: false
       hidden: false
-      sort: 6
+      sort: 7
       width: full
       group: null
       translations: null
@@ -2488,6 +2828,48 @@ relations:
       many_collection: snippets
       many_field: user_updated
       one_collection: directus_users
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: posts
+    field: media_hero
+    related_collection: directus_files
+    schema:
+      table: posts
+      column: media_hero
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: posts_media_hero_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: posts
+      many_field: media_hero
+      one_collection: directus_files
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: null
+      sort_field: null
+      one_deselect_action: nullify
+  - collection: posts
+    field: media_teaser
+    related_collection: directus_files
+    schema:
+      table: posts
+      column: media_teaser
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: posts_media_teaser_foreign
+      on_update: RESTRICT
+      on_delete: RESTRICT
+    meta:
+      many_collection: posts
+      many_field: media_teaser
+      one_collection: directus_files
       one_field: null
       one_collection_field: null
       one_allowed_collections: null
